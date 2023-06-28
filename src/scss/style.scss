@@ -1,7 +1,246 @@
-@import "_reset";
 @import "_fonts";
+@import "_reset";
 @import "_mixins";
 @import "_tamplates";
 @import "_variables";
 @import "_root";
 
+.wrapper {
+	display: grid;
+	height: 100%;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr minmax(4rem, 4.5rem);
+}
+
+.title {
+	position: relative;
+	z-index: 2;
+}
+
+.main {
+
+	&__slides {
+		max-height: calc(100vh - 7rem);
+		height: 100%;
+		width: calc(100% - 2.5rem);
+		padding: 1.25rem;
+	}
+
+	&__slide[data-animation="left-right"] {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		width: 100%;
+		z-index: 1;
+	}
+
+	&__slide[data-animation="top-bottom"] {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		width: 100%;
+		z-index: 1;
+	}
+
+	&__slide[data-animation="top"] {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		width: 100%;
+		z-index: 1;
+	}
+
+	&__image {
+		position: absolute;
+		overflow: hidden;
+		width: 100%;
+		height: calc(100vh - 7rem);
+		border-radius: 8px;
+		background: linear-gradient(0deg, #000 0%, #000 100%), lightgray 50% / cover no-repeat;
+		
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: 50% 50%;
+		}
+	}
+
+	&__title-big {
+		color: $color;
+		text-align: center;
+		font-size: 4rem;
+		font-family: Gilroy;
+		font-weight: 700;
+
+		&::after {
+			content: '';
+			display: block;
+			width: 8rem;
+			height: 3px;
+			background-color: $color;
+			margin: 6rem auto 1.88rem;
+		}
+	}
+
+	&__title-quote {
+		color: $color;
+		font-size: 1.5rem;
+		font-family: Gilroy;
+		padding-bottom: 1.25rem;
+		display: flex;
+		gap: 1rem;
+	}
+
+	&__title-author {
+		color: $color;
+		font-size: 1.125rem;
+		font-family: Gilroy;
+		font-weight: 500;
+	}
+
+	&__title-border {
+		color: $color;
+		font-size: 2rem;
+		font-family: Gilroy;
+		font-weight: 600;
+		&::after {
+			content: '';
+			display: block;
+			width: 8rem;
+			height: 3px;
+			background-color: $color;
+			margin: 1.5rem auto 3rem;
+		}
+	}
+
+	&__title-text {
+		color: $color;
+		text-align: center;
+		font-size: 2.25rem;
+		font-family: Gilroy;
+		font-weight: 600;
+		max-width: 70rem;
+	}
+
+	&__title-top {
+		color: $color;
+		font-size: 2.5rem;
+		font-family: Gilroy;
+		font-weight: 700;
+		padding-right: 20%;
+		padding: 1rem 10% 1rem 0;
+	}
+
+	&__title-bottom {
+		color: $color;
+		font-size: 2.5rem;
+		font-family: Gilroy;
+		font-weight: 700;
+		padding: 1rem 0 1rem 10%;
+	}
+
+	&__title-date {
+		color: $color;
+		font-size: 2rem;
+		font-family: Gilroy;
+		font-weight: 900;
+		margin-top: -6rem;
+		padding-bottom: 6rem;
+	}
+
+	&__hr {
+		position: relative;
+		height: 1px;
+		background-color: $color;
+		width: 100%;
+		z-index: 3;
+	}
+}
+
+.footer {
+	border-top: 1px solid $secondary-color;
+	padding: 0 1.25rem;
+
+	&__info {
+		display: grid;
+		
+		grid-template-rows: 1fr;
+		height: 100%;
+		align-items: center;
+		grid-template-columns: 1fr minmax(6rem, 8rem) minmax(6rem, 8rem);
+	}
+}
+
+.info {
+
+	&__logo {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		align-content: center;
+	}
+
+	&__projects {
+		display: flex;
+		align-items: center;
+		
+		img {
+			margin-right: 2.5rem;
+		}
+	}
+
+	&__creator {
+		color: $color;
+		font-size: 1.125rem;
+		font-family: Gilroy;
+		font-weight: 500;
+		padding-right: 1.25rem;
+		span {
+			color: $color;
+			font-size: 0.75rem;
+			font-family: Gilroy;
+			font-weight: 500;
+		}
+	}
+
+	&__icons {
+		display: flex;
+		height: 100%;
+		justify-content: space-around;
+		align-items: center;
+		border-left: 1px dashed rgba(214, 212, 203, 0.20);
+	}
+
+	&__icons-social {
+		justify-content: space-evenly;
+	}
+
+	&__icon {
+		cursor: pointer;
+	}
+
+	&__icon-border {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.875rem;
+		color: $color;
+		font-size: 0.8125rem;
+		font-family: Gilroy;
+		font-weight: 500;
+		height: 1.875rem;
+		border-radius: 50%;
+		border: 1px dashed $color;
+	}
+}

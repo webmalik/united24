@@ -5,7 +5,6 @@
   font-weight: Bold;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Gilroy";
   font-display: swap;
@@ -13,7 +12,6 @@
   font-weight: Bold;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Gilroy";
   font-display: swap;
@@ -21,7 +19,6 @@
   font-weight: Medium;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Gilroy";
   font-display: swap;
@@ -29,15 +26,6 @@
   font-weight: Medium;
   font-style: normal;
 }
-
-@font-face {
-  font-family: "Gilroy";
-  font-display: swap;
-  src: url("../fonts/Gilroy-Regular.woff") format("woff"), url("../fonts/Gilroy-Regular.woff2") format("woff2");
-  font-weight: Regular;
-  font-style: normal;
-}
-
 @font-face {
   font-family: "Gilroy";
   font-display: swap;
@@ -45,15 +33,6 @@
   font-weight: SemiBold;
   font-style: normal;
 }
-
-@font-face {
-  font-family: "Gilroy";
-  font-display: swap;
-  src: url("../fonts/Gilroy-SemiBold.woff") format("woff"), url("../fonts/Gilroy-SemiBold.woff2") format("woff2");
-  font-weight: SemiBold;
-  font-style: normal;
-}
-
 @font-face {
   font-family: "Gilroy";
   font-display: swap;
@@ -61,88 +40,33 @@
   font-weight: Regular;
   font-style: normal;
 }
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+@font-face {
+  font-family: "Gilroy";
+  font-display: swap;
+  src: url("../fonts/Gilroy-SemiBold.woff") format("woff"), url("../fonts/Gilroy-SemiBold.woff2") format("woff2");
+  font-weight: SemiBold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy";
+  font-display: swap;
+  src: url("../fonts/Gilroy-Regular.woff") format("woff"), url("../fonts/Gilroy-Regular.woff2") format("woff2");
+  font-weight: Regular;
+  font-style: normal;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -152,18 +76,8 @@ video {
 }
 
 /* HTML5 display-role reset for older browsers */
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
@@ -171,20 +85,16 @@ body {
   line-height: 1;
 }
 
-ol,
-ul {
+ol, ul {
   list-style: none;
 }
 
-blockquote,
-q {
+blockquote, q {
   quotes: none;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote:before, blockquote:after,
+q:before, q:after {
   content: "";
   content: none;
 }
@@ -202,7 +112,6 @@ button {
 /*
 	! Media mixin
 */
-
 html {
   height: 100%;
 }
@@ -249,7 +158,6 @@ a {
   width: calc(100% - 2.5rem);
   padding: 1.25rem;
 }
-
 .main__slide[data-animation=left-right] {
   position: relative;
   display: flex;
@@ -260,7 +168,6 @@ a {
   width: 100%;
   z-index: 1;
 }
-
 .main__slide[data-animation=top-bottom] {
   position: relative;
   display: flex;
@@ -271,7 +178,6 @@ a {
   width: 100%;
   z-index: 1;
 }
-
 .main__slide[data-animation=top] {
   position: relative;
   display: flex;
@@ -282,7 +188,6 @@ a {
   width: 100%;
   z-index: 1;
 }
-
 .main__image {
   position: absolute;
   overflow: hidden;
@@ -291,16 +196,12 @@ a {
   border-radius: 8px;
   background: linear-gradient(0deg, #000 0%, #000 100%), lightgray 50%/cover no-repeat;
 }
-
 .main__image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: 50% 50%;
-     object-position: 50% 50%;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
-
 .main__title-big {
   color: #D6D4CB;
   text-align: center;
@@ -308,7 +209,6 @@ a {
   font-family: Gilroy;
   font-weight: 700;
 }
-
 .main__title-big::after {
   content: "";
   display: block;
@@ -317,7 +217,6 @@ a {
   background-color: #D6D4CB;
   margin: 6rem auto 1.88rem;
 }
-
 .main__title-quote {
   color: #D6D4CB;
   font-size: 1.5rem;
@@ -326,21 +225,18 @@ a {
   display: flex;
   gap: 1rem;
 }
-
 .main__title-author {
   color: #D6D4CB;
   font-size: 1.125rem;
   font-family: Gilroy;
   font-weight: 500;
 }
-
 .main__title-border {
   color: #D6D4CB;
   font-size: 2rem;
   font-family: Gilroy;
   font-weight: 600;
 }
-
 .main__title-border::after {
   content: "";
   display: block;
@@ -349,7 +245,6 @@ a {
   background-color: #D6D4CB;
   margin: 1.5rem auto 3rem;
 }
-
 .main__title-text {
   color: #D6D4CB;
   text-align: center;
@@ -358,7 +253,6 @@ a {
   font-weight: 600;
   max-width: 70rem;
 }
-
 .main__title-top {
   color: #D6D4CB;
   font-size: 2.5rem;
@@ -367,7 +261,6 @@ a {
   padding-right: 20%;
   padding: 1rem 10% 1rem 0;
 }
-
 .main__title-bottom {
   color: #D6D4CB;
   font-size: 2.5rem;
@@ -375,7 +268,6 @@ a {
   font-weight: 700;
   padding: 1rem 0 1rem 10%;
 }
-
 .main__title-date {
   color: #D6D4CB;
   font-size: 2rem;
@@ -383,7 +275,6 @@ a {
   font-weight: 900;
   transform: translateY(-6rem);
 }
-
 .main__hr {
   position: relative;
   height: 1px;
@@ -396,7 +287,6 @@ a {
   border-top: 1px solid #957E5E;
   padding: 0 1.25rem;
 }
-
 .footer__info {
   display: grid;
   grid-template-rows: 1fr;
@@ -411,16 +301,13 @@ a {
   align-items: center;
   align-content: center;
 }
-
 .info__projects {
   display: flex;
   align-items: center;
 }
-
 .info__projects img {
   margin-right: 2.5rem;
 }
-
 .info__creator {
   color: #D6D4CB;
   font-size: 1.125rem;
@@ -428,14 +315,12 @@ a {
   font-weight: 500;
   padding-right: 1.25rem;
 }
-
 .info__creator span {
   color: #D6D4CB;
   font-size: 0.75rem;
   font-family: Gilroy;
   font-weight: 500;
 }
-
 .info__icons {
   display: flex;
   height: 100%;
@@ -443,15 +328,12 @@ a {
   align-items: center;
   border-left: 1px dashed rgba(214, 212, 203, 0.2);
 }
-
 .info__icons-social {
   justify-content: space-evenly;
 }
-
 .info__icon {
   cursor: pointer;
 }
-
 .info__icon-border {
   display: flex;
   align-items: center;

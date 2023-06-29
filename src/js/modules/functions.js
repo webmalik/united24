@@ -1,8 +1,8 @@
 import $ from "jquery";
 import { swipedevents } from "swiped-events";
 import * as animations from './animations.js'
+import * as settings from './settings.js'
 
-const helperInput = document.querySelector('#helper')
 
 export function isWebp() {
 	function testWebP(callback) {
@@ -27,11 +27,33 @@ export function isWebp() {
 
 export function start() {
 	const showNextSlide = () => {
-		animations.animation__top_bottom()
+		let currentSlideNumber = document.querySelector('.main__slide--current').dataset.slide
+		console.log(currentSlideNumber)
+		if (currentSlideNumber < settings.slideCount) {
+
+			let currentSlide = document.querySelector('.main__slide--current')
+			currentSlide.nextElementSibling.classList.add('main__slide--current')
+			let animate = currentSlide.nextElementSibling.dataset.animation
+			animations.init(animate)
+			currentSlide.classList.remove('main__slide--current')
+			//settings.currentSlide = document.querySelector('.main__slide--current')
+			console.log(currentSlide)
+		}
 	}
 
 	const showPrevSlide = () => {
-		animations.animation__top()
+		let currentSlideNumber = document.querySelector('.main__slide--current').dataset.slide
+		console.log(currentSlideNumber)
+		if (currentSlideNumber > 1) {
+
+			let currentSlide = document.querySelector('.main__slide--current')
+			currentSlide.previousElementSibling.classList.add('main__slide--current')
+			let animate = currentSlide.previousElementSibling.dataset.animation
+			animations.init(animate)
+			currentSlide.classList.remove('main__slide--current')
+			//settings.currentSlide = document.querySelector('.main__slide--current')
+			console.log(currentSlide)
+		}
 	}
 
 	if (window.innerWidth >= 768) {
@@ -39,20 +61,20 @@ export function start() {
 			let delta = -e.deltaY
 
 			if (delta > 0) {
-				if (helperInput.value == 1) {
-					helperInput.value = 0
+				if (settings.helperInput.value == 1) {
+					settings.helperInput.value = 0
 					showPrevSlide()
 					setTimeout(() => {
-						helperInput.value = 1
-					}, 1500)
+						settings.helperInput.value = 1
+					}, 5000)
 				}
 			} else {
-				if (helperInput.value == 1) {
-					helperInput.value = 0
+				if (settings.helperInput.value == 1) {
+					settings.helperInput.value = 0
 					showNextSlide()
 					setTimeout(() => {
-						helperInput.value = 1
-					}, 1500)
+						settings.helperInput.value = 1
+					}, 5000)
 				}
 			}
 		})

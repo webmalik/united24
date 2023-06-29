@@ -1,9 +1,16 @@
 export const slides = document.querySelector('.main__slides')
+export const slideList = document.querySelectorAll('.main__slide')
+export const slideCount = document.querySelectorAll('.main__slide').length
 export const slide = document.querySelector('.main__slide')
 export const image = document.querySelector('.main__image')
 export const animation = slide.dataset.animation
-export const numberSlide = slide.dataset.slide
+export const helperInput = document.querySelector('#helper')
 
+export let currentSlide = document.querySelector('.main__slide--current')
+export let currentSlideNumber = document.querySelector('.main__slide--current').dataset.slide
+
+
+console.log(slideCount)
 // Titles
 
 export const title_big = document.querySelector('.main__title-big')

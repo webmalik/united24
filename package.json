@@ -49,5 +49,8 @@
 		"webp-converter": "2.2.3",
 		"webpack": "latest",
 		"webpack-stream": "latest"
+	},
+	"dependencies": {
+		"gsap": "^3.12.1"
 	}
 }

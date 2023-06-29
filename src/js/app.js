@@ -1,3 +1,7 @@
 import * as wmFunctions from "./modules/functions.js"
 
-wmFunctions.isWebp();
+
+wmFunctions.isWebp()
+window.onload = function () {
+	wmFunctions.start()
+}

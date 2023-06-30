@@ -9,8 +9,6 @@ export const helperInput = document.querySelector('#helper')
 export let currentSlide = document.querySelector('.main__slide--current')
 export let currentSlideNumber = document.querySelector('.main__slide--current').dataset.slide
 
-
-console.log(slideCount)
 // Titles
 
 export const title_big = document.querySelector('.main__title-big')

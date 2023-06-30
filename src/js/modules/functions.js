@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { swipedevents } from "swiped-events";
+import { swipedevents } from "swiped-events"
 import * as animations from './animations.js'
 import * as settings from './settings.js'
 
@@ -26,39 +26,51 @@ export function isWebp() {
 }
 
 export function start() {
-	const showNextSlide = () => {
-		let currentSlideNumber = document.querySelector('.main__slide--current').dataset.slide
-		console.log(currentSlideNumber)
-		if (currentSlideNumber < settings.slideCount) {
+	let currentSlideNumber
+	let currentSlide = document.querySelector('.main__slide--current')
+	let animate = currentSlide.dataset.animation
+	animations.init(animate, settings.slides)
 
-			let currentSlide = document.querySelector('.main__slide--current')
+	const showNextSlide = () => {
+		currentSlideNumber = document.querySelector('.main__slide--current').dataset.slide
+		if (currentSlideNumber < settings.slideCount) {
+			currentSlide = document.querySelector('.main__slide--current')
 			currentSlide.nextElementSibling.classList.add('main__slide--current')
-			let animate = currentSlide.nextElementSibling.dataset.animation
-			animations.init(animate)
-			currentSlide.classList.remove('main__slide--current')
-			//settings.currentSlide = document.querySelector('.main__slide--current')
-			console.log(currentSlide)
+			animate = currentSlide.nextElementSibling.dataset.animation
+			animations.loading(currentSlide.dataset.slide)
+			animations.init(animate, currentSlide.nextElementSibling)
 		}
+		currentSlide.classList.remove('main__slide--current')
 	}
 
 	const showPrevSlide = () => {
-		let currentSlideNumber = document.querySelector('.main__slide--current').dataset.slide
-		console.log(currentSlideNumber)
-		if (currentSlideNumber > 1) {
+		currentSlideNumber = document.querySelector('.main__slide--current').dataset.slide
 
-			let currentSlide = document.querySelector('.main__slide--current')
+		if (currentSlideNumber > 1) {
+			currentSlide = document.querySelector('.main__slide--current')
 			currentSlide.previousElementSibling.classList.add('main__slide--current')
 			let animate = currentSlide.previousElementSibling.dataset.animation
-			animations.init(animate)
+			animations.loading(currentSlide.dataset.slide)
+			animations.init(animate, currentSlide.previousElementSibling)
 			currentSlide.classList.remove('main__slide--current')
-			//settings.currentSlide = document.querySelector('.main__slide--current')
-			console.log(currentSlide)
+
 		}
 	}
 
 	if (window.innerWidth >= 768) {
+		let main = document.querySelector('.main')
+		main.addEventListener('click', (e) => {
+			if (settings.helperInput.value == 1) {
+				settings.helperInput.value = 0
+				showNextSlide()
+				setTimeout(() => {
+					settings.helperInput.value = 1
+				}, 2000)
+			}
+		})
 		window.addEventListener('wheel', (e) => {
 			let delta = -e.deltaY
+
 
 			if (delta > 0) {
 				if (settings.helperInput.value == 1) {
@@ -66,7 +78,7 @@ export function start() {
 					showPrevSlide()
 					setTimeout(() => {
 						settings.helperInput.value = 1
-					}, 5000)
+					}, 2000)
 				}
 			} else {
 				if (settings.helperInput.value == 1) {
@@ -74,7 +86,7 @@ export function start() {
 					showNextSlide()
 					setTimeout(() => {
 						settings.helperInput.value = 1
-					}, 5000)
+					}, 2000)
 				}
 			}
 		})

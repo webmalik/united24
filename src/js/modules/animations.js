@@ -83,3 +83,29 @@ export function loading(currentSlideNumber) {
 	}, 2000)
 
 }
+
+export function nav() {
+	let footer_nav = document.querySelector('.footer__nav')
+	let footer_list = document.querySelector('.footer__list')
+	let footer_items = document.querySelectorAll('.footer__item')
+	let footer_logo = document.querySelectorAll('.info__logo')
+
+	let tl = gsap.timeline()
+
+	tl.to(footer_nav, { duration: 1.2, y: 1000, opacity: 1, ease: "power4.out" })
+		.to(footer_items, { duration: 1, x: 0, opacity: 1, ease: "power4.out" })
+		.to(footer_logo, { duration: 1.5, y: 200, opacity: 1, ease: "power4.out" }, "=+0.2")
+}
+
+export function nav_reverce() {
+	let footer_nav = document.querySelector('.footer__nav')
+	let footer_list = document.querySelector('.footer__list')
+	let footer_items = document.querySelectorAll('.footer__item')
+	let footer_logo = document.querySelectorAll('.info__logo')
+
+	let tl = gsap.timeline()
+
+	tl.to(footer_logo, { duration: 0.5, y: -200, opacity: 0, ease: "power4.out" }, "=+0.2")
+		.to(footer_items, { duration: 0.2, x: -200, opacity: 0, ease: "power4.out" })
+		.to(footer_nav, { duration: 0.4, y: -1000, opacity: 0, ease: "power4.out" })
+}

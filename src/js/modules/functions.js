@@ -26,6 +26,7 @@ export function isWebp() {
 }
 
 export function start() {
+
 	let currentSlideNumber
 	let currentSlide = document.querySelector('.main__slide--current')
 	let animate = currentSlide.dataset.animation
@@ -58,6 +59,24 @@ export function start() {
 	}
 
 	if (window.innerWidth >= 768) {
+		let item = document.querySelector('.footer__list')
+		item.addEventListener('click', (e) => {
+			let slideTo = e.srcElement.dataset.slide
+
+			if (slideTo >= 1) {
+				let current = document.querySelector('.main__slide--current')
+				current.classList.remove('main__slide--current')
+				animations.loading(e.srcElement.dataset.slide - 1)
+
+				document.querySelectorAll('.main__slide').forEach((val) => {
+					if (val.dataset.slide == slideTo) {
+						animations.init(val.dataset.animation, val)
+						val.classList.add('main__slide--current')
+					}
+				})
+			}
+		})
+
 		let main = document.querySelector('.main')
 		main.addEventListener('click', (e) => {
 			if (settings.helperInput.value == 1) {
@@ -91,6 +110,21 @@ export function start() {
 			}
 		})
 	} else {
+		let burger_icon = document.querySelector('#nav-icon4')
+		let i = false
+		burger_icon.addEventListener('click', () => {
+			if (i == false) {
+				burger_icon.classList.add('open')
+				animations.nav()
+				i = true
+			} else {
+				burger_icon.classList.remove('open')
+				animations.nav_reverce()
+				i = false
+			}
+		})
+		//console.log(burger_icon_open)
+
 		window.addEventListener('swiped-left', () => {
 			showNextSlide()
 		})
@@ -104,4 +138,23 @@ export function start() {
 			showPrevSlide()
 		})
 	}
+}
+export function audioPlay() {
+	const audioFile = new Audio('../../files/audio.mp3')
+	const volume = document.getElementById("volume");
+	audioFile.muted = true
+	audioFile.autoplay = true
+	audioFile.loop = true
+	audioFile.preload = true
+
+	if (audioFile.muted == true) {
+		document.querySelector('.info__icon-sound').classList.add('mute')
+	} else { document.querySelector('.info__icon-sound').classList.remove('mute') }
+	volume.addEventListener('click', function (e) {
+		audioFile.play()
+		audioFile.muted = (audioFile.muted == false) ? true : false
+		if (audioFile.muted == true) {
+			document.querySelector('.info__icon-sound').classList.add('mute')
+		} else { document.querySelector('.info__icon-sound').classList.remove('mute') }
+	});
 }
